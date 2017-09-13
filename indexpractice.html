@@ -1,0 +1,143 @@
+<!-- Regular Degular HTML Tag Stuff
+Link in JS and Link in CSS -->
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <title>Crystal Gem Collector</title>
+        </head>
+
+<body>
+
+<!-- All on Page Load -->
+
+<!-- Crystal Collector Text and Instructions -->
+<div class ="row">
+<div class="col-lg-12 col-md-12">
+<header> 
+<p class="text-right"><img src = "assets/images/cgc.png" ahref= "Crystal Gem Collector Game"></p>
+</header>
+</div>
+</div>
+<div class ="row">
+<div class = "container">
+
+<div id = "text">
+<p>
+How To Play: </p>
+<p>
+You will be given a random number at the beginning of this game. </p>
+<p>
+There are four crytals, each have their own value and when clicked it will add to your score</p>
+<p> You win the game by matching your total score to random number. You lose the game if your total score is higher than the random number</p>
+<p> And the game restarts after you're alerted that you won/lost</p>.
+</div>
+
+<div class ="row">
+<div class="col-lg-12 col-md-12">
+<div class ="counter">
+</div>
+
+<div class = "randomComputerBox">
+</div>
+</div>
+</div>
+
+<div class ="row">
+<div class="col-lg-12 col-md-12">
+<div class ="gems">
+<img id="gem" src="one.jpg">
+<img id="gem2" src="assets/images/2.png">
+<img id="gem3" src="assets/images/three.png">
+<img id="gem4" src="assets/images/four.png">
+</div>
+</div>
+</div>
+
+<div id = "text"> <p>Your Score:</p> </div>
+<div class ="row">
+<div class="col-lg-12 col-md-12">
+<div class="userScore"></div>
+</div>
+</div>
+
+
+<!-- container closing div -->
+</div>
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+ <script type="text/javascript">
+
+// On Page Load Too
+$(document).ready(function() {
+	$('.gems img').each(function(i, elem) {
+		elem.setAttribute('data-crystalValue', Math.floor(Math.random() * (12 - 1) + 1));
+	});
+});
+
+// Variables
+// <!-- Randomly Generated Number By Computer Box (between 19 and 120) -->
+var targetNum = Math.floor(Math.random() * (120 - 19) + 19);
+  $(".randomComputerBox").text(targetNum).css({
+  	"fontSize": "60px",
+  	'text-align': 'center' 
+  });
+
+
+var counter = 0;
+
+function startGame(){
+   targetNum = Math.floor(Math.random() * (120 - 19) + 19);
+  $(".randomComputerBox").text(targetNum).css({
+  	"fontSize": "60px",
+  	'text-align': 'center'});
+  	counter = 0;
+    $(".userScore").text(counter); 
+
+}
+
+var wins = 0;
+var losses = 0;
+
+
+// Change the size of the crystal gems
+$('#gem, #gem2,#gem3, #gem4').css({'width' : '100px' , 'height' : '100px'});
+
+
+// <!-- My Crystal Value Box Counter -->
+// ON CLICK STUFF
+$('.gems img').on("click", function(){
+var crystalValue = ($(this).attr("data-crystalvalue"));
+crystalValue = parseInt(crystalValue);
+counter += crystalValue;
+console.log(counter);
+// <!-- Your total score is: text -->
+$(".userScore").text(counter).css({
+  	"fontSize": "60px",
+  	'text-align': 'center' 
+  	 });
+// The counter logic
+if (counter === targetNum){
+wins++;
+alert("YAY BITCH! Let\'s PLAY AGAIN!");
+startGame();
+}
+else if (counter > targetNum){
+	alert("UT OHHHH SPAGHETTI-O\'s!!!! - Let's play again!");
+  losses++
+	startGame();
+}
+// Adding Wins and Losses Counter
+var html = 
+  "<p>Wins: " + wins + "</p>" +
+  "<p>Losses: " + losses + "</p>" ;
+// making sure it throws the info in the div
+  document.querySelector(".counter").innerHTML = html;
+  });
+// <!-- End HTML Tag Stuff -->
+</script>
+</body>
+</html>

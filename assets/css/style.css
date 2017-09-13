@@ -1,0 +1,72 @@
+html {
+	height:100%;
+}
+
+body {
+	background-image: url('../images/background1.jpg');
+	background-size:cover;
+	background-repeat: no-repeat;
+
+}
+
+.container {
+	float: right;
+	width: 50%;
+}
+
+#text {
+	text-align: center;
+	background-color: #FF69B4;
+}
+
+header {
+	font-size: 55px;
+}
+
+
+
+.randomComputerBox {
+float: right;
+background-image: url('../images/computerBOX.jpeg');
+height:85px;
+width:225px;
+margin: 0 0 10px;
+
+}
+
+.counter {
+float: right;
+background-color: #9ACD32;
+height:85px;
+width:100px;
+    margin: 0 0 10px;
+}
+
+.gems {
+float: right;
+background-color: #9ACD32;
+height:100px;
+margin: 0 0 10px;
+}
+
+#gem {
+}
+
+#gem2 {
+
+}
+
+#gem3{
+
+}
+
+#gem4{	
+}
+
+.userScore {
+float: right;
+background-image: url('../images/computerBOX.jpeg');
+height:100px;
+width:300px;
+}
+

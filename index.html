@@ -1,0 +1,150 @@
+<!-- Regular Degular HTML Tag Stuff
+Link in JS and Link in CSS -->
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <title>Crystal Gem Collector</title>
+        </head>
+
+<body>
+
+<!-- All on Page Load -->
+
+<!-- Crystal Collector Text and Instructions -->
+<div class ="row">
+<div class="col-lg-12 col-md-12">
+<header> 
+<p class="text-right">Crystal GEM collector </p>
+</header>
+</div>
+</div>
+<div class ="row">
+<div class = "container">
+
+<div id = "text">
+<p>
+do this</p>
+<p>
+Praesent rhoncus dolor in varius volutpat. Etiam suscipit non augue sodales egestas. Quisque sit amet accumsan ipsum. </p>
+<p>
+Sed vitae mauris risus. Suspendisse luctus pellentesque pretium. Aenean a nunc ut lorem dictum dapibus ut non nunc. Sed a enim dictum, ultrices risus sit amet, hendrerit ex.</p>
+<p>
+Sed vitae mauris risus. Suspendisse luctus pellentesque pretium. Aenean a nunc ut lorem dictum dapibus ut non nunc. Sed a enim dictum, ultrices risus sit amet, hendrerit ex.</p>
+</div>
+<br>
+<div class ="row">
+<div class="col-lg-12 col-md-12">
+<div class ='secondRow'>
+<div class ="counter">
+<p>Wins:</p>
+<p>Losses:</p>
+</div>
+<div class = "randomComputerBox">
+
+</div>
+</div>
+</div>
+</div>
+<br>
+<div class ="row">
+<div class="col-lg-12 col-md-12">
+<div class ="gems">
+<img id="gem" src="one.jpg">
+<img id="gem2" src="assets/images/2.png">
+<img id="gem3" src="assets/images/three.png">
+<img id="gem4" src="assets/images/four.png">
+</div>
+</div>
+</div>
+<br>
+<div id = "text"> Your Score </div>
+<div class ="row">
+<div class="col-lg-12 col-md-12">
+<div class="userScore"></div>
+</div>
+</div>
+
+
+<!-- container closing div -->
+</div>
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+ <script type="text/javascript">
+
+// Variables
+var counter = 0;
+var targetNum = Math.floor(Math.random() * (120 - 19) + 19);
+  $(".randomComputerBox").text(targetNum);
+
+var crystalNum = Math.floor(Math.random() * 12)
+
+// Add the four gem images to the crystal div
+$('#gem, #gem2,#gem3, #gem4').css({'width' : '100px' , 'height' : '100px'});
+
+
+$('#gem').attr("data-crystalvalue", 15);
+// Add the crystalNum variable to each image
+
+$('#gem').on("click", function(){
+var crystalValue = ($(this).attr("data-crystalvalue"));
+crystalValue = parseInt(crystalValue);
+counter += crystalValue;
+console.log(counter);
+$(".userScore").text(counter);
+})
+
+$('#gem2').on("click", function(){
+var crystalValue = ($(this).attr("data-crystalvalue"));
+crystalValue = parseInt(crystalNum);
+counter += crystalValue;
+console.log(counter);
+$(".userScore").text(counter);
+})
+
+$('#gem3').on("click", function(){
+var crystalValue = ($(this).attr("data-crystalvalue"));
+crystalValue = parseInt(crystalNum);
+counter += crystalValue;
+console.log(counter);
+$(".userScore").text(counter);
+})
+
+$('#gem4').on("click", function(){
+var crystalValue = ($(this).attr("data-crystalvalue"));
+crystalValue = parseInt(crystalNum);
+counter += crystalValue;
+console.log(counter);
+$(".userScore").text(counter);
+})
+
+
+
+
+
+
+
+
+
+
+
+
+// <!-- Randomly Generated Number By Computer Box (between 19 and 120) -->
+
+// <!-- Wins and Losses Counter (everytime the crystal score is > the computer box number thats a loss and the game starts over) -->
+
+// <!-- 4 Crystals with random values attached to them (between 1 and 12). Everytime the user score box goes over the randomly generated number in computer box - these crystals change values
+//  -->
+// <!-- Your total score is: text -->
+
+// <!-- My Score Box -->
+
+
+
+// <!-- End HTML Tag Stuff -->
+</script>
+</body>
+</html>
